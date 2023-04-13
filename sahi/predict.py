@@ -515,6 +515,8 @@ def predict(
                 verbose=1 if verbose else 0,
             )
             object_prediction_list = prediction_result.object_prediction_list
+            # print(object_prediction_list)
+            
             durations_in_seconds["slice"] += prediction_result.durations_in_seconds["slice"]
         else:
             # get standard prediction
@@ -527,7 +529,10 @@ def predict(
                 verbose=0,
             )
             object_prediction_list = prediction_result.object_prediction_list
+            # print(object_prediction_list)
 
+        
+        n = len(object_prediction_list)
         durations_in_seconds["prediction"] += prediction_result.durations_in_seconds["prediction"]
         # Show prediction time
         if verbose:
@@ -658,7 +663,8 @@ def predict(
             )
 
     if return_dict:
-        return {"export_dir": save_dir}
+        return n, {"export_dir": save_dir}
+    return n
 
 
 def predict_fiftyone(
