@@ -427,7 +427,7 @@ def predict(
     # init export directories
     save_dir = Path(increment_path(Path(project), exist_ok=True))  # increment run
     crop_dir = save_dir / "crops"
-    visual_dir = save_dir 
+    visual_dir = save_dir / "outputs"
     visual_with_gt_dir = save_dir / "visuals_with_gt"
     pickle_dir = save_dir / "pickles"
     if not novisual or export_pickle or export_crop or dataset_json_path is not None:
